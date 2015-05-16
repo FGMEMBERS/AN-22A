@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
- 
+ <!--
+    ###################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
+    Development is ongoing, see latest version: www.github.com/HerbyW
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    
+    Firefly: 3D model improvment
+    Eagel: Liveries
+    ###################################################################################
+-->
 <PropertyList>
 
   <fx>
@@ -559,6 +568,52 @@
       <reference-dist>10</reference-dist>
       <max-dist>100</max-dist>
     </ADF>
+    
+     <!-- Gear in and out -->
+    
+    <tank1>
+      <name>tank1</name>
+      <mode>once</mode>
+      <path>Aircraft/AN-22A/Sounds/Tank-SoundBible-com.wav</path>
+      <condition>       
+	<greater-than>
+          <property>sim/multiplay/generic/float[16]</property>
+          <value>1.1</value>
+        </greater-than>	
+      </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </tank1>
+    
+    <tank2>
+      <name>tank2</name>
+      <mode>once</mode>
+      <path>Aircraft/AN-22A/Sounds/Tank-SoundBible-com.wav</path>
+      <condition>       
+	<greater-than>
+          <property>sim/multiplay/generic/float[16]</property>
+          <value>1.1</value>
+        </greater-than>	
+      </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+      <delay-sec>5</delay-sec>
+    </tank2>
+    
+    <tank3>
+      <name>tank3</name>
+      <mode>once</mode>
+      <path>Aircraft/AN-22A/Sounds/Tank-SoundBible-com.wav</path>
+      <condition>       
+	<greater-than>
+          <property>sim/multiplay/generic/float[16]</property>
+          <value>1.1</value>
+        </greater-than>	
+      </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+      <delay-sec>10</delay-sec>
+    </tank3>
 
   </fx>
 

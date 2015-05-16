@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ###################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
+    Development is ongoing, see latest version: www.github.com/HerbyW
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    
+    Firefly: 3D model improvment
+    Eagel: Liveries
+    ###################################################################################
+-->
+<PropertyList>
+
+  <path>Bradle.ac</path>
+    
+  <animation>
+    <name>bradletank2b</name>    
+  </animation>
+  
+  
+  
+  <animation>
+    <type>translate</type>
+    <name>bradletank2b</name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <interpolation>
+      <entry><ind> 121700 </ind><dep> -0.0 </dep></entry>
+      <entry><ind> 109550 </ind><dep> -1.0 </dep></entry>
+      <entry><ind> 103550 </ind><dep> -5.0 </dep></entry>
+      <entry><ind> 84550 </ind><dep> -10.0 </dep></entry>
+      <entry><ind> 72850 </ind><dep> -18.0 </dep></entry>
+      <entry><ind> 60851 </ind><dep> -43.0 </dep></entry>
+      <entry><ind> 0 </ind><dep> -60.0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x>-1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <name>bradletank2b</name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <interpolation>
+      <entry><ind> 74550 </ind><dep>  0.0 </dep></entry>      
+      <entry><ind> 71750 </ind><dep>  20.0 </dep></entry>
+      <entry><ind> 69000 </ind><dep>  0.0 </dep></entry>      
+    </interpolation>
+    <center>
+      <x-m> 18.5 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m>  0.0 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+ <animation>
+    <type>translate</type>
+    <name>bradletank2b</name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <interpolation>
+      <entry><ind> 121700 </ind><dep>  0.7 </dep></entry>
+      <entry><ind> 109550 </ind><dep>  0.7 </dep></entry>
+      <entry><ind> 83550 </ind><dep>  0.5 </dep></entry>
+      <entry><ind> 74550 </ind><dep>  0.4 </dep></entry>
+      <entry><ind> 69000 </ind><dep>  2.0 </dep></entry>
+      <entry><ind> 60851 </ind><dep>  2.0 </dep></entry>
+      <entry><ind> 0 </ind><dep>  2.0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z>-1 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>
