@@ -13,6 +13,8 @@
 #UVID-15 Control for Pressure in mmhg and inhg
 # create listener
 
+setprop("/instrumentation/altimeter/setting-hapa", getprop("/instrumentation/altimeter/setting-hpa"));
+
 setlistener("/instrumentation/altimeter/setting-inhg", func(v)
 {
   if(v.getValue())
@@ -515,10 +517,104 @@ setlistener("/sim/airport/closest-airport-id", func
 
 setlistener("controls/flight/flaps", func
  { 
- if ((getprop("controls/flight/flaps") > 0  ) and (getprop("velocities/groundspeed-kt") > 270  ))
+ if ((getprop("controls/flight/flaps") > 0  ) and (getprop("velocities/groundspeed-kt") > 250  ))
   {
     setprop("controls/flight/flaps", 0);
-    setprop("sim/messages/copilot", "Do you want to destroy the flaps due to overspeed????");    
+    setprop("sim/flaps/current-setting", 0);
+    setprop("sim/messages/copilot", "Do you want to destroy the flaps due to overspeed (max 250)????");    
   }
 });
  
+##############################################################################################################
+# runway effect
+
+
+setprop("controls/gear/runway", 0);
+
+setlistener("gear/gear[3]/wow", func
+{
+  if (getprop("gear/gear[3]/wow") == 0)
+    interpolate("controls/gear/runway", 0 , 0.1);
+  else
+  {
+  if ( ( getprop("gear/gear[3]/compression-norm") > 0.20 ) and ( getprop("gear/gear[3]/rollspeed-ms") > 60)  and ( getprop("/velocities/speed-down-fps") > 2))
+    interpolate("controls/gear/runway", 1 , 0.3, 0 , 0.3);
+  }
+}
+);
+
+######################################################################################################################
+
+# ice system
+
+#  environment/temperature-degc
+#  /sim/model/anti-ice-alpha
+#  /sim/model/iceing                = float 19
+#  /controls/switches/glass-heating
+#  /controls/switches/rotor-heating
+
+var ice = maketimer(15, func
+
+  {
+   if(getprop("/controls/switches/glass-heating") == 0) 
+   {
+     if(getprop("/environment/temperature-degc") > 1)
+     {
+     interpolate("/sim/model/anti-ice-alpha", 1, 14);
+     }
+    else
+    {
+      interpolate("/sim/model/anti-ice-alpha", getprop("/environment/temperature-degc") * 0.03846 + 0.90 , 14 );
+    }
+   }
+   else 
+   {
+     interpolate("/sim/model/anti-ice-alpha", 1, 14);
+   }
+   
+   if(getprop("/controls/switches/rotor-heating") == 0) 
+   { 
+     if(getprop("/environment/temperature-degc") > 1)
+     {
+     interpolate("/sim/model/anti-ice-rotor", 1, 14);
+     }
+    else
+    {
+      interpolate("/sim/model/anti-ice-rotor", getprop("/environment/temperature-degc") * 0.03846 , 14 );
+    }
+   }
+   else 
+   {
+     interpolate("/sim/model/anti-ice-rotor", 1, 14);     
+   }
+   
+  }); 
+    
+ice.start();
+
+var glassice = maketimer(15, func {
+  
+  if(getprop("/controls/switches/glass-heating") == 0)
+  
+    interpolate("/sim/model/iceing", getprop("/sim/model/anti-ice-alpha"), 14);
+  
+  if(getprop("/controls/switches/glass-heating") == 1)
+    
+    interpolate("/sim/model/iceing", 1, 14);
+
+});
+
+glassice.start();
+
+var rotorice = maketimer(15, func {
+  
+  if(getprop("/controls/switches/rotor-heating") == 0)
+    
+    interpolate("/controls/flight/spoilers", -1 * getprop("/sim/model/anti-ice-rotor"), 14);
+  
+  if(getprop("/controls/switches/rotor-heating") == 1)
+    
+    interpolate("/controls/flight/spoilers", 0, 14);
+});
+
+rotorice.start();

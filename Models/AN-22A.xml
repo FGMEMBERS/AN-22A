@@ -13,7 +13,7 @@
 
 <PropertyList>
   
-  <path>an22.ac</path>
+  <path>an22-06.ac</path>
 
   <nasal>
     <load>
@@ -135,7 +135,6 @@
     <object-name>heliceDE1</object-name>
     <object-name>heliceDE2</object-name>    
     <!-- Objets transparents -->
-    <object-name>vitres</object-name>
     <object-name>propblurGE1</object-name>
     <object-name>propdiscGE1</object-name>
     <object-name>propblurGE2</object-name>
@@ -356,10 +355,9 @@
     <object-name>baieB</object-name>
     <object-name>baieH</object-name>
   </effect>
-  
+
   <animation>
     <type>noshadow</type>
-    <object-name>vitres</object-name>
     <object-name>propblurGE1</object-name>
     <object-name>propdiscGE1</object-name>
     <object-name>propblurGE2</object-name>
@@ -376,7 +374,16 @@
     <object-name>propdiscDE1</object-name>
     <object-name>propblurDE2</object-name>
     <object-name>propdiscDE2</object-name>
-  </animation>  
+  </animation>
+
+  <animation>    
+    <object-name>vitres</object-name>
+</animation>
+
+<animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+  </animation>
   
   <!-- working for Rembrandt -->  
   <effect>
@@ -406,6 +413,31 @@
  <animation>    
     <object-name>vitres</object-name>
 </animation>
+ 
+ <!-- the ice effect -->
+	
+	<effect>
+	  <inherits-from>Effects/model-transparent</inherits-from>
+	  <object-name>windowice</object-name>
+	</effect>
+	
+	<animation>
+	  <type>select</type>
+	  <object-name>windowice</object-name>
+	  <condition>		
+	    <less-than>
+	      <property>sim/multiplay/generic/float[19]</property>
+	      <value>0.95</value>
+	    </less-than>
+	  </condition>
+	</animation>	
+	
+	<animation>
+	  <type>blend</type>
+	  <object-name>windowice</object-name>
+	  <property>sim/multiplay/generic/float[19]</property>
+	  <factor>1</factor>
+	</animation> 
  
  
   <!-- Une ombre pour OSG -->
@@ -2095,168 +2127,35 @@
   
   
    
-  <!-- Lighting Landing without Rembrand-->
- <model>
-  <path>Aircraft/AN-22A/Models/light/WhiteLight.xml</path>
-   <condition>
-    
-      <or>
-	  <property>sim/multiplay/generic/int[9]</property>
-	  <property>sim/multiplay/generic/int[10]</property>
-      </or>
-     
-   </condition>
-     <offsets>
-      <x-m> -13.12 </x-m>
-      <y-m>  -3.85 </y-m>
-      <z-m>  -4.05 </z-m>
-     </offsets>
- </model> 
-    
- <model>
-    <path>Aircraft/AN-22A/Models/light/WhiteLight.xml</path>
-    <condition>
-    
-      <or>
-	  <property>sim/multiplay/generic/int[9]</property>
-	  <property>sim/multiplay/generic/int[10]</property>
-      </or>
-     
-   </condition>
-     <offsets>
-      <x-m> -13.12 </x-m>
-      <y-m>   3.85 </y-m>
-      <z-m>  -4.05 </z-m>
-     </offsets>
- </model>
- 
- <model>  
-    <path>Aircraft/AN-22A/Models/light/WhiteLight.xml</path>
-    
-      <condition>
-       <and>
-        <or>
-	  <property>sim/multiplay/generic/int[9]</property>
-	  <property>sim/multiplay/generic/int[10]</property>
-        </or>       
-	  <property>gear/gear[0]/position-norm</property>       
-      </and>
-     </condition>
-    
-     <offsets>
-      <x-m> -21.5 </x-m>
-      <y-m>   0.0 </y-m>
-      <z-m>  -5.0 </z-m>
-     </offsets>
- </model> 
-  
-  <!-- Lighting Landing 154 beginn, External lights for Rembrand-->
- <model>
-  <path>Aircraft/AN-22A/Models/light/headlight-landing.xml</path>
-  <name>headlight_c</name>
-  <condition>
-      <property>/sim/rendering/rembrandt/enabled</property>
-    </condition>
-  <offsets>
-    <x-m>-29.037</x-m>
-    <y-m>0.0</y-m>
-    <z-m>-0.55</z-m>
-   <pitch-deg>79.0</pitch-deg>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/AN-22A/Models/light/headlight-landing.xml</path>
-  <name>headlight_l</name>
-  <condition>
-      <property>/sim/rendering/rembrandt/enabled</property>
-    </condition>
-  <offsets>
-   <x-m>-13.71</x-m>
-   <y-m>-3.81</y-m>
-   <z-m>-0.1</z-m>
-   <pitch-deg>78.8</pitch-deg>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/AN-22A/Models/light/headlight-landing.xml</path>
-  <name>headlight_r</name>
-  <condition>
-      <property>/sim/rendering/rembrandt/enabled</property>
-    </condition>
-  <offsets>
-   <x-m>-13.71</x-m>
-   <y-m>3.81</y-m>
-   <z-m>-0.1</z-m>
-   <pitch-deg>78.8</pitch-deg>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/AN-22A/Models/light/headlight-taxi.xml</path>
-  <name>taxilight_c</name>
-  <condition>
-      <property>/sim/rendering/rembrandt/enabled</property>
-    </condition>
-  <offsets>
-    <x-m>-29.037</x-m>
-    <y-m>0.0</y-m>
-    <z-m>-0.55</z-m>
-   <pitch-deg>70.0</pitch-deg>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/AN-22A/Models/light/headlight-taxi.xml</path>
-  <name>taxilight_l</name>
-  <condition>
-      <property>/sim/rendering/rembrandt/enabled</property>
-    </condition>
-  <offsets>
-   <x-m>-13.71</x-m>
-   <y-m>-3.81</y-m>
-   <z-m>-0.1</z-m>
-   <pitch-deg>70.0</pitch-deg>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/AN-22A/Models/light/headlight-taxi.xml</path>
-  <name>taxilight_r</name>
-  <condition>
-      <property>/sim/rendering/rembrandt/enabled</property>
-    </condition>
-  <offsets>
-   <x-m>-13.71</x-m>
-   <y-m>3.81</y-m>
-   <z-m>-0.1</z-m>
-   <pitch-deg>70.0</pitch-deg>
-  </offsets>
- </model>
-  <!-- Lighting Landing 154 end -->
-  
-  <!-- Lighting Landing without Rembrand -->
+    <!-- NEW   Taxi and Landing lights-->
   <model>
-  <path>Aircraft/AN-22A/Models/light/light-cone-707.xml</path>
-  <name>taxilight_r</name>
-  <offsets>
-   <x-m> -8.0 </x-m>
-      <y-m>  0.0 </y-m>
-      <z-m>  -3.25 </z-m>
-   <pitch-deg>-2.0</pitch-deg>
-  </offsets>
- </model>
- <model>
-  <path>Aircraft/AN-22A/Models/light/light-cone-taxi-707.xml</path>
-  <name>taxilight_r</name>
-  <offsets>
-   <x-m> -8.0 </x-m>
-      <y-m>  0.0 </y-m>
-      <z-m>  -3.25 </z-m>
-   <pitch-deg>-2.0</pitch-deg>
-  </offsets>
- </model>
+    <path>Aircraft/AN-22A/Models/light/landinglightstaxi.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+  <!-- Landing lamps on top -->
+  <model>
+    <path>Aircraft/AN-22A/Models/light/landinglights.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/AN-22A/Models/light/TU-160-lights.xml</path>
+    <offsets>
+      <x-m> -4.63</x-m>
+      <y-m>   0.0 </y-m>
+      <z-m>  -3.254</z-m>
+    </offsets>
+  </model>
+  
+  
   
     <!--Internal Cabin lights for Rembrand, switch: bano-->
  <model>
@@ -2519,6 +2418,44 @@
     <y-m> 2.5 </y-m>
     <z-m> -8 </z-m>
   </offsets>
+</model>
+
+<!--runway effect -->
+
+<model> 
+ <path>Aircraft/AN-22A/Models/Effects/tyres.xml</path>
+ <offsets> 
+  <x-m> -0.84250 </x-m>
+      <y-m> -3.28059 </y-m>
+      <z-m> -5.82 </z-m>
+ </offsets>
+</model>
+
+<model> 
+ <path>Aircraft/AN-22A/Models/Effects/tyres.xml</path>
+ <offsets> 
+  <x-m> -0.84250 </x-m>
+      <y-m> 3.28059 </y-m>
+      <z-m> -5.82 </z-m>
+ </offsets>
+</model>
+
+<model> 
+ <path>Aircraft/AN-22A/Models/Effects/ground/touch.xml</path>
+ <offsets> 
+  <x-m> -0.84250 </x-m>
+      <y-m> -3.28059 </y-m>
+      <z-m> -5.82 </z-m>
+ </offsets>
+</model>
+
+<model> 
+ <path>Aircraft/AN-22A/Models/Effects/ground/touch.xml</path>
+ <offsets> 
+  <x-m> -0.84250 </x-m>
+      <y-m> 3.28059 </y-m>
+      <z-m> -5.82 </z-m>
+ </offsets>
 </model>
 
 </PropertyList>
