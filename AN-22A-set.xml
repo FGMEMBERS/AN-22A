@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<PropertyList include="AN-22A-base.xml">
-  
 <!--
-    ###################################################################################
-    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2016
-    Development is ongoing, see latest version: www.github.com/HerbyW
-    This file is licenced under the terms of the GNU General Public Licence V3 or later
-    
-    Firefly: 3D model improvment
-    Eagel: Liveries
-    ###################################################################################
+Copyright (C) Herbert Wagner Dec2014-2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
+
+<PropertyList include="AN-22A-base.xml">
 
   <sim>
 
     <description>Antonov AN-22A (YASim)</description>
-    <author>HerbyW (Instruments, Animations, FDM, 3D), BARANGER Emmanuel (orig 3D/FDM)</author>
+    <author>Herbert Wagner (Instruments, Animations, FDM, 3D), Baranger E.(orig 3D/FDM)</author>
     <flight-model>yasim</flight-model>
     <aero>AN-22A-yasim</aero>
     
@@ -30,7 +24,7 @@
     <weight n="1">
 		    <name>Cargo</name>
 		    <weight-lb type="double">90000.0</weight-lb>
-		    <max-lb type="double">200170.0</max-lb>
+		    <max-lb type="double">176370.0</max-lb>
 		    <min-lb type="double">0.0</min-lb>
 		</weight>
 	
@@ -51,9 +45,9 @@
     
     
     <rating>
-      <FDM type="int">     3 </FDM>
+      <FDM type="int">     4 </FDM>
       <systems type="int"> 3 </systems>
-      <cockpit type="int"> 3 </cockpit>
+      <cockpit type="int"> 4 </cockpit>
       <model type="int">   4 </model>
     </rating>
    

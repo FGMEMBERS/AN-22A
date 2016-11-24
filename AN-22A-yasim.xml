@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-    ###################################################################################
-    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
-    Development is ongoing, see latest version: www.github.com/HerbyW
-    This file is licenced under the terms of the GNU General Public Licence V3 or later
-    
-    Firefly: 3D model improvment
-    Eagel: Liveries
-    ###################################################################################
+Copyright (C) Herbert Wagner Dec2014-2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
 <!--Sources              : http://en.wikipedia.org/wiki/Antonov_An-22
 
@@ -34,6 +28,17 @@ An-22A
 An-22A
     Improved variant with air-start capability, modified electrical system,
     and updated radio and navigation equipment, 28 built at Tashkent.
+    
+    YASim solution results:
+       Iterations: 2421
+       Drag Coefficient: 19.6124
+       Lift Ratio: 127.213
+       Cruise AoA: 2.03591
+       Tail Incidence: -3.87746
+       Approach Elevator: -0.291123
+       CG: 7.804, -0.000, -0.939
+    
+    
 -->
 
 <airplane mass="251625" version="YASIM_VERSION_CURRENT">
@@ -62,19 +67,19 @@ An-22A
   <cruise speed="390" alt="36370" fuel="0.8">
     <control-setting axis="/controls/engines/engine[0]/throttle-v" value="1"/>
     <control-setting axis="/controls/engines/engine[0]/condition" value="1"/>
-    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1"/>
     
     <control-setting axis="/controls/engines/engine[1]/throttle-v" value="1"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1"/>
-    <control-setting axis="/controls/engines/engine[1]/propeller-pitch" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[1]/propeller-pitch" value="1"/>
     
     <control-setting axis="/controls/engines/engine[2]/throttle-v" value="1"/>
     <control-setting axis="/controls/engines/engine[2]/condition" value="1"/>
-    <control-setting axis="/controls/engines/engine[2]/propeller-pitch" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[2]/propeller-pitch" value="1"/>
     
     <control-setting axis="/controls/engines/engine[3]/throttle-v" value="1"/>
     <control-setting axis="/controls/engines/engine[3]/condition" value="1"/>
-    <control-setting axis="/controls/engines/engine[3]/propeller-pitch" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[3]/propeller-pitch" value="1"/>
     
     <control-setting axis="/controls/flight/flaps" value="0"/>
     <control-setting axis="/controls/gear/gear-down" value="0"/>
@@ -146,7 +151,7 @@ An-22A
          <control-input axis="/controls/flight/elevator" control="FLAP0"/>
          <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
          <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
-         <control-speed control="FLAP0" transition-time="3.0"/>
+         <control-speed control="FLAP0" transition-time="6.0"/>
   </hstab>
 
   <!-- Ruder chord was 5.023 reduced to compensate for sidewind obscure -->
@@ -211,7 +216,7 @@ An-22A
                              n2-high-idle="65"
                              n2-max="100"
                              flat-rating="15990"
-                             bsfc="0.45">
+                             bsfc="0.36">
                              <control-input axis="/controls/engines/engine[0]/condition" control="CONDLEVER"/>
                              <control-input axis="/controls/engines/engine[0]/throttle-v" control="THROTTLE"/>
              </turbine-engine>
@@ -243,7 +248,7 @@ An-22A
                              n2-high-idle="65"
                              n2-max="100"
                              flat-rating="15990"
-                             bsfc="0.45">
+                             bsfc="0.36">
                              <control-input axis="/controls/engines/engine[1]/condition" control="CONDLEVER"/>
                              <control-input axis="/controls/engines/engine[1]/throttle-v" control="THROTTLE"/>
              </turbine-engine>
@@ -275,7 +280,7 @@ An-22A
                              n2-high-idle="65"
                              n2-max="100"
                              flat-rating="15990"
-                             bsfc="0.45">
+                             bsfc="0.36">
                              <control-input axis="/controls/engines/engine[2]/condition" control="CONDLEVER"/>
                              <control-input axis="/controls/engines/engine[2]/throttle-v" control="THROTTLE"/>
              </turbine-engine>
@@ -307,15 +312,15 @@ An-22A
                              n2-high-idle="65"
                              n2-max="100"
                              flat-rating="15990"
-                             bsfc="0.45">
+                             bsfc="0.36">
                              <control-input axis="/controls/engines/engine[3]/condition" control="CONDLEVER"/>
                              <control-input axis="/controls/engines/engine[3]/throttle-v" control="THROTTLE"/>
              </turbine-engine>
   </propeller>
 
   <!-- Noze wheel -->
-  <gear x="20.40663" y="0" z="-6.35" retract-time="7" compression="0.45" spring="1.2" damp="1.35" sfric="0.9" dfric="0.6">
-        <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
+  <gear x="20.40663" y="0" z="-6.30" retract-time="7" compression="0.45" spring="1.2" damp="1.35" sfric="0.9" dfric="0.6">
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="-0.75" dst1="0.75" square="true"/>
         <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
         <control-output control="STEER" prop="/gear/gear[0]/steering-norm"/>
         <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
@@ -376,10 +381,10 @@ An-22A
         <control-speed control="EXTEND" transition-time="9.7"/>
   </gear>
 
-  <tank x="3" y=" 10.36101" z="-0.661" capacity="24000"/>
-  <tank x="3" y="-10.36101" z="-0.661" capacity="24000"/>
-  <tank x="3" y=" 13.36101" z="0.1" capacity="24000"/>
-  <tank x="3" y="-13.36101" z="0.1" capacity="24000"/>
+  <tank x="3" y=" 10.36101" z="-0.661" capacity="52911"/>
+  <tank x="3" y="-10.36101" z="-0.661" capacity="52911"/>
+  <tank x="3" y=" 13.36101" z="0.1" capacity="52911"/>
+  <tank x="3" y="-13.36101" z="0.1" capacity="52911"/>
   <!-- Mass distribution CG: 9.67, 0.000, -1.040-->
   <ballast x="-2.0" y="0" z="-2.27" mass="12000"/>
   <ballast x="19.5" y="0" z="-2.26" mass="92000"/>

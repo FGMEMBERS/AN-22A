@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-    ###################################################################################
-    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
-    Development is ongoing, see latest version: www.github.com/HerbyW
-    This file is licenced under the terms of the GNU General Public Licence V3 or later
-    
-    Firefly: 3D model improvment
-    Eagel: Liveries
-    ###################################################################################
+Copyright (C) Herbert Wagner Dec2014-2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
 
 <PropertyList>
   
-  <path>an22-06.ac</path>
+  <path>an22-11.ac</path>
 
   <nasal>
     <load>
@@ -24,8 +18,8 @@
       var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
       var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
       
-      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
-      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+      var crew_door = self.getNode("/instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("/instrumentation/doors/passenger/position-norm", 1);
     
       crew_door.alias(float_0);
       passenger_door.alias(float_1);
@@ -39,7 +33,7 @@
   </nasal>
   
   <sound>
-       <path>Aircraft/AN-22A/Sounds/AN-22A-sound.xml</path>
+       <path>Aircraft/AN-22A/Sounds/AN-22A-sound-MP.xml</path>
  </sound>
  
 <!-- ALL-GLASS-GUAGES-AND-WINDSHIELD -->
@@ -133,7 +127,9 @@
     <object-name>heliceDI1</object-name>
     <object-name>heliceDI2</object-name>
     <object-name>heliceDE1</object-name>
-    <object-name>heliceDE2</object-name>    
+    <object-name>heliceDE2</object-name>
+    <object-name>Untitled</object-name>
+    <object-name>Untitled.001</object-name>    
     <!-- Objets transparents -->
     <object-name>propblurGE1</object-name>
     <object-name>propdiscGE1</object-name>
@@ -215,14 +211,14 @@
     <object-name>heliceDI2</object-name>
     <object-name>heliceDE1</object-name>
     <object-name>heliceDE2</object-name>
+    <object-name>Untitled</object-name>
+    <object-name>Untitled.001</object-name>
     
-    <emission>
-      <factor-prop>sim/time/sun-angle-rad</factor-prop>
-      <red>   0.1 </red>
-      <green> 0.1 </green>
-      <blue>  0.1 </blue>
-    </emission>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
   </animation>
+
   
   <animation>
     <type>material</type>    
@@ -255,9 +251,9 @@
   
   
   <effect>
-    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <inherits-from>Aircraft/AN-22A/Models/Effects/c182sreflect-uber_body</inherits-from>
     <condition>
-      <not><property>sim/rendering/rembrandt/enabled</property></not>
+      <not><property>/sim/rendering/rembrandt/enabled</property></not>
     </condition>
     <object-name>fuselage</object-name>
     <object-name>ailes</object-name>
@@ -303,12 +299,14 @@
     <object-name>porteDE3</object-name>
     <object-name>baieB</object-name>
     <object-name>baieH</object-name>
+    <object-name>Untitled</object-name>
+    <object-name>Untitled.001</object-name>
   </effect>  
   
   <effect>
     <inherits-from>Effects/model-combined-deferred</inherits-from>
     <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
+      <property>/sim/rendering/rembrandt/enabled</property>
     </condition>
     <object-name>fuselage</object-name>
     <object-name>ailes</object-name>
@@ -354,6 +352,8 @@
     <object-name>porteDE3</object-name>
     <object-name>baieB</object-name>
     <object-name>baieH</object-name>
+    <object-name>Untitled</object-name>
+    <object-name>Untitled.001</object-name>
   </effect>
 
   <animation>
@@ -389,7 +389,7 @@
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
+      <property>/sim/rendering/rembrandt/enabled</property>
     </condition>
     <object-name>vitres</object-name>
     <object-name>propblurGE1</object-name>
@@ -447,6 +447,7 @@
       <x-m>  0.0 </x-m>
       <y-m>  0.0 </y-m>
       <z-m> -5.85 </z-m>
+      <pitch-deg>-0.0</pitch-deg>
     </offsets>
   </model>
    
@@ -1077,7 +1078,7 @@
     <object-name>propdiscDE1</object-name>
     <object-name>propblurDE1</object-name>
     <object-name>heliceDE1</object-name>
-    <object-name>bolDE1</object-name>
+    <object-name>Untitled</object-name>
   </animation>
   
   <!-- Selection of the visible object based on the rpm -->
@@ -1282,7 +1283,7 @@
     </axis>
   </animation>
   
-  <!-- Volets -->
+  <!-- Flaps -->
   <animation>
     <type>rotate</type>
     <object-name>voletG</object-name>
@@ -1514,6 +1515,7 @@
   <animation>
     <type>translate</type>
     <object-name>roueG1</object-name>
+    <object-name>axeG1</object-name>
     <property>gear/gear[1]/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 1.12 </dep></entry>
@@ -1529,6 +1531,7 @@
   <animation>
     <type>translate</type>
     <object-name>roueD1</object-name>
+    <object-name>axeD1</object-name>
     <property>gear/gear[1]/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 1.12 </dep></entry>
@@ -1544,6 +1547,7 @@
   <animation>
     <type>translate</type>
     <object-name>roueG2</object-name>
+    <object-name>axeG2</object-name>
     <property>gear/gear[2]/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 1.05 </dep></entry>
@@ -1559,6 +1563,7 @@
   <animation>
     <type>translate</type>
     <object-name>roueD2</object-name>
+    <object-name>axeD2</object-name>
     <property>gear/gear[2]/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 1.05 </dep></entry>
@@ -1574,6 +1579,7 @@
   <animation>
     <type>translate</type>
     <object-name>roueG3</object-name>
+    <object-name>axeG3</object-name>
     <property>gear/gear[3]/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 1 </dep></entry>
@@ -1589,6 +1595,7 @@
   <animation>
     <type>translate</type>
     <object-name>roueD3</object-name>
+    <object-name>axeD3</object-name>
     <property>gear/gear[3]/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 1 </dep></entry>
@@ -1605,6 +1612,7 @@
   <animation>
     <name>RoueAvant</name>
     <object-name>roueA</object-name>
+    <object-name>axeA</object-name>
   </animation>
   
   <animation>
@@ -1625,6 +1633,7 @@
   <animation>
     <name>RoueGauche1</name>
     <object-name>roueG1</object-name>
+    <object-name>axeG1</object-name>
   </animation>
   
   <animation>
@@ -1645,6 +1654,7 @@
   <animation>
     <name>RoueGauche2</name>
     <object-name>roueG2</object-name>
+    <object-name>axeG2</object-name>
   </animation>
   
   <animation>
@@ -1665,6 +1675,7 @@
   <animation>
     <name>RoueGauche3</name>
     <object-name>roueG3</object-name>
+    <object-name>axeG3</object-name>
   </animation>
   
   <animation>
@@ -1685,6 +1696,7 @@
   <animation>
     <name>RoueDroite1</name>
     <object-name>roueD1</object-name>
+    <object-name>axeD1</object-name>
   </animation>
   
   <animation>
@@ -1705,6 +1717,7 @@
   <animation>
     <name>RoueDroite2</name>
     <object-name>roueD2</object-name>
+    <object-name>axeD2</object-name>
   </animation>
   
   <animation>
@@ -1725,6 +1738,7 @@
   <animation>
     <name>RoueDroite3</name>
     <object-name>roueD3</object-name>
+    <object-name>axeD3</object-name>
   </animation>
   
   <animation>
@@ -1753,7 +1767,7 @@
     <type>rotate</type>
     <object-name>TourneAvant</object-name>
     <property>surface-positions/rudder-pos-norm</property>
-    <factor> 20 </factor>
+    <factor> 35 </factor>
     <center>
       <x-m> -20.71690 </x-m>
       <y-m>   0.00000 </y-m>
@@ -1886,7 +1900,103 @@
     </axis>
   </animation>
   
+  <!-- Stairs -->
+  
+  <model>
+   <name>stairs</name>
+   <path>Aircraft/AN-22A/Models/Effects/stairs.ac</path>  
+  </model>
+  
+  <animation>
+    <type>select</type>
+    <object-name>escalier_2</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[0]</property>
+	<value>-0.1</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>escalier_1</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[1]</property>
+	<value>-0.1</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>escalier_1</object-name>
+    <property>sim/multiplay/generic/float[1]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>  -1.7 </dep></entry>
+      <entry><ind> 0.5 </ind><dep>  -1.7 </dep></entry>
+      <entry><ind> 0.7 </ind><dep>  -1.0 </dep></entry>
+      <entry><ind> 1.0 </ind><dep>   0.0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>escalier_1</object-name>
+    <property>sim/multiplay/generic/float[1]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>  -1.4 </dep></entry>
+      <entry><ind> 0.7 </ind><dep>  -1.4 </dep></entry>
+      <entry><ind> 1.0 </ind><dep>   0.0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z>-1 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>escalier_2</object-name>
+    <property>sim/multiplay/generic/float[0]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>  1.7 </dep></entry>
+      <entry><ind> 0.5 </ind><dep>  1.7 </dep></entry>
+      <entry><ind> 0.7 </ind><dep>  1.0 </dep></entry>
+      <entry><ind> 1.0 </ind><dep>   0.0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>escalier_2</object-name>
+    <property>sim/multiplay/generic/float[0]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>  -1.4 </dep></entry>
+      <entry><ind> 0.7 </ind><dep>  -1.4 </dep></entry>
+      <entry><ind> 1.0 </ind><dep>   0.0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z>-1 </z>
+    </axis>
+  </animation>
+
   <!-- Porte -->
+
   <animation>
     <type>pick</type>
     <object-name>porteG</object-name>
@@ -2211,6 +2321,43 @@
                         <z-m> -0.61716 </z-m>
 		</offsets>
 	</model>
+	
+	<model>
+		<path>Aircraft/AN-22A/Models/Effects/smoke/smoke_1r.xml</path>
+		<offsets>
+			<x-m>  -4.31956 </x-m>
+                        <y-m> -13.45214 </y-m>
+                        <z-m>  -0.61716 </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/AN-22A/Models/Effects/smoke/smoke_2r.xml</path>
+		<offsets>
+			<x-m> -5.00545 </x-m>
+                        <y-m> -6.87900 </y-m>
+                        <z-m> -0.61716 </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/AN-22A/Models/Effects/smoke/smoke_3r.xml</path>
+		<offsets>
+			<x-m> -5.00545 </x-m>
+                        <y-m>  6.87900 </y-m>
+                        <z-m> -0.61716 </z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<path>Aircraft/AN-22A/Models/Effects/smoke/smoke_4r.xml</path>
+		<offsets>
+			<x-m> -4.31956 </x-m>
+                        <y-m> 13.45214 </y-m>
+                        <z-m> -0.61716 </z-m>
+		</offsets>
+	</model>
 
 	        <!-- Chokes -->
 
@@ -2457,5 +2604,12 @@
       <z-m> -5.82 </z-m>
  </offsets>
 </model>
+
+ <!-- LOD for the model as a whole -->
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>25000</max-m>
+ </animation>
 
 </PropertyList>

@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-    ###################################################################################
-    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
-    Development is ongoing, see latest version: www.github.com/HerbyW
-    This file is licenced under the terms of the GNU General Public Licence V3 or later
-    
-    Firefly: 3D model improvment
-    Eagel: Liveries
-    ###################################################################################
-
-     Panel and Interior redesign from "firefly" Dec/Jan 2014
-     Fotos from https://www.flickr.com/photos/raf_yyc/ added for visualisation of work to do, all rights belong to raf_yyc
-
-     Source : http://i41.photobucket.com/albums/e290/sovietjet/IMG_1739.jpg 
-              this is not a AN-12, but for a start not bad                 -->
-
+Copyright (C) Herbert Wagner Dec2014-2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
+-->
 <PropertyList>
 
   
@@ -853,22 +841,22 @@
    <!--Throttle, Propeller-Pitch, Mixture Control Panel -->
  
  <model>
-    <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/quadrant/quadrant.xml</path>
+    <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/throttlebox/throttlebox.xml</path>
     <offsets>
-      <x-m> -0.00</x-m>
-      <y-m> -0.28 </y-m>
-      <z-m> -0.35 </z-m>
+      <x-m> 0</x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
       <heading-deg>0</heading-deg>
-      <pitch-deg>43</pitch-deg>
+      <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
   
   <model>
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/switch/reverser.xml</path>
     <offsets>
-      <x-m> 0.078</x-m>
-      <y-m> -0.35 </y-m>
-      <z-m> -0.292 </z-m>
+      <x-m> 0.0272</x-m>
+      <y-m> -0.266 </y-m>
+      <z-m> -0.265 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-47</pitch-deg>
     </offsets>
@@ -878,7 +866,7 @@
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/redlamp/red-lamp-reverser.xml</path>
     <offsets>
       <x-m> 0.05</x-m>
-      <y-m> -0.35 </y-m>
+      <y-m> -0.271 </y-m>
       <z-m> -0.285 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-43</pitch-deg>
@@ -888,10 +876,21 @@
   <!--USH, USHDB ADF and VOR Navigation Compasses -->
   
   <model>
+    <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/ush/ush.xml</path>
+    <offsets>
+      <x-m> 0.05</x-m>
+      <y-m> 0.03 </y-m>
+      <z-m> -0.30 </z-m>
+      <heading-deg>0</heading-deg>
+      <pitch-deg>-38</pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/ushdb/ushdb.xml</path>
     <offsets>
       <x-m> 0.05</x-m>
-      <y-m> 0.10 </y-m>
+      <y-m> 0.18 </y-m>
       <z-m> -0.30 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -902,7 +901,7 @@
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/ushdb/ushdb_selector.xml</path>
     <offsets>
       <x-m> 0.104</x-m>
-      <y-m> 0.10 </y-m>
+      <y-m> 0.18 </y-m>
       <z-m> -0.383 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -913,7 +912,7 @@
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/redlamp/red-lamp-adf1.xml</path>
     <offsets>
       <x-m> 0.102</x-m>
-      <y-m> 0.063 </y-m>
+      <y-m> 0.143 </y-m>
       <z-m> -0.416 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -924,7 +923,7 @@
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/redlamp/red-lamp-adf2.xml</path>
     <offsets>
       <x-m> 0.102</x-m>
-      <y-m> 0.139 </y-m>
+      <y-m> 0.219 </y-m>
       <z-m> -0.416 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -935,7 +934,7 @@
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/redlamp/red-lamp-nav1.xml</path>
     <offsets>
       <x-m> 0.075</x-m>
-      <y-m> 0.063 </y-m>
+      <y-m> 0.143 </y-m>
       <z-m> -0.377 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -946,7 +945,7 @@
     <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/redlamp/red-lamp-nav2.xml</path>
     <offsets>
       <x-m> 0.075</x-m>
-      <y-m> 0.139 </y-m>
+      <y-m> 0.219 </y-m>
       <z-m> -0.377</z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -979,7 +978,7 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m> 0.104</x-m>
-      <y-m> 0.088 </y-m>
+      <y-m> 0.168 </y-m>
       <z-m> -0.383 </z-m>
       <heading-deg>0</heading-deg>
       <pitch-deg>-38</pitch-deg>
@@ -996,17 +995,6 @@
       <blue>  0.5 </blue>
     </emission>
   </animation>
-  
-  <model>
-    <path>Aircraft/AN-22A/Models/Interior/Panel/Instruments/ush/ush.xml</path>
-    <offsets>
-      <x-m> 0.05</x-m>
-      <y-m> -0.05 </y-m>
-      <z-m> -0.30 </z-m>
-      <heading-deg>0</heading-deg>
-      <pitch-deg>-38</pitch-deg>
-    </offsets>
-  </model>
  
   <!--engineur panel: Skawk Transponder Control Module
                       KM-5 magnetic variation module,
@@ -1639,7 +1627,7 @@ Battery</text>
   <text>
     <name>Navlights</name>
     <type type="string">literal</type>
-    <text type="string">NAV
+    <text type="string">Beacon NAV Strobe
 Lights</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
@@ -1647,7 +1635,7 @@ Lights</text>
     <character-aspect-ratio type="double">1.0</character-aspect-ratio>
     <axis-alignment>yz-plane</axis-alignment>
     <max-height>0.06</max-height>
-    <max-width>0.035</max-width>
+    <max-width>0.075</max-width>
     <font-resolution>
       <width type="int">32</width>
       <height type="int">32</height>
@@ -1898,7 +1886,7 @@ Lights</text>
     <offsets>
       <x-m>  33.3 </x-m>
       <y-m> -2.35 </y-m>
-      <z-m> 0.7 </z-m>
+      <z-m> 0.8 </z-m>
       <heading-deg>180.0</heading-deg>
     </offsets>
   </model>
@@ -1908,7 +1896,7 @@ Lights</text>
     <offsets>
       <x-m>  33.3 </x-m>
       <y-m> -2.35 </y-m>
-      <z-m> 0.8 </z-m>
+      <z-m> 0.9 </z-m>
       <heading-deg>180.0</heading-deg>
     </offsets>
   </model> 
@@ -1918,7 +1906,7 @@ Lights</text>
     <offsets>
       <x-m>  33.3 </x-m>
       <y-m> -2.35 </y-m>
-      <z-m> 0.9 </z-m>
+      <z-m> 0.7 </z-m>
       <heading-deg>180.0</heading-deg>
     </offsets>
   </model>
@@ -2391,7 +2379,5 @@ Heating</text>
             <blue>0.50</blue>
         </emission>        
     </animation>
- 
- 
-
+    
 </PropertyList>

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
-    ###################################################################################
-    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
-    Development is ongoing, see latest version: www.github.com/HerbyW
-    This file is licenced under the terms of the GNU General Public Licence V3 or later
-    
-    Firefly: 3D model improvment
-    Eagel: Liveries
-    ###################################################################################
+Copyright (C) Herbert Wagner Dec2014-2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
 <PropertyList>
 
-  <path>interior-06.ac</path>
+  <path>interior-08.ac</path>
 
   <animation>    
     <object-name>intvitres</object-name>
@@ -53,7 +47,7 @@
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
+      <property>/sim/rendering/rembrandt/enabled</property>
     </condition>
     <object-name>intvitres</object-name>
   </effect>
@@ -64,9 +58,19 @@
   
 
 
-  <!-- Planche de bord -->
+  <!-- Panel from AN-12 modified -->
   <model>
     <path>Aircraft/AN-22A/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -25.20 </x-m>
+      <y-m>   0.0000 </y-m>
+      <z-m>  -1.1478 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Frontpanel HerbyW 2016 -->
+  <model>
+    <path>Aircraft/AN-22A/Models/Interior/Panel/frontpanel.xml</path>
     <offsets>
       <x-m> -25.20 </x-m>
       <y-m>   0.0000 </y-m>
